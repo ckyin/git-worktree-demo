@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NAV_LINKS, BRAND } from '../data/navigation';
 
-function Navbar() {
+function Navbar({ theme = 'dark', onToggleTheme }) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
@@ -39,6 +39,14 @@ function Navbar() {
                             </li>
                         ))}
                     </ul>
+                    <button
+                        type="button"
+                        className="btn btn--outline btn--sm navbar__theme-toggle"
+                        onClick={onToggleTheme}
+                        aria-label={`切換至${theme === 'dark' ? '淺色' : '深色'}主題`}
+                    >
+                        {theme === 'dark' ? '淺色主題' : '深色主題'}
+                    </button>
                     <a href="#demo" className="btn btn--primary btn--sm navbar__cta">
                         預約 Demo
                     </a>
